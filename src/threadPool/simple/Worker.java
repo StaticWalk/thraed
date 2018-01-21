@@ -1,4 +1,4 @@
-package threadPool;
+package threadPool.simple;
 
 /**
  * Created by xiongxiaoyu on 2018/1/19.
