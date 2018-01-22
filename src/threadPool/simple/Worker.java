@@ -22,6 +22,7 @@ public class Worker extends Thread{
 	public  boolean isIdle(){
 		return isIdle;
 	}
+
 	public void run(){
 		while (!isShutDown){
 			isIdle=false;
@@ -44,8 +45,10 @@ public class Worker extends Thread{
 			isIdle=false;
 		}
 	}
+
 	public synchronized void setTarget(Runnable newTarget){
 		target=newTarget;
+		//设置任务之后，开始执行这个任务
 		notifyAll();
 	}
 

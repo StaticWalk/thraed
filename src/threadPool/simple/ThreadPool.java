@@ -39,6 +39,7 @@ public class ThreadPool {
 			repollingThread.shutDown();
 		}
 	}
+
 	public synchronized void shutdown(){
 		isShutDown=true;
 		for (int threadIndex = 0; threadIndex < idleThreads.size(); threadIndex++) {
@@ -46,6 +47,7 @@ public class ThreadPool {
 			idleThread.shutDown();
 		}
 	}
+
 	public synchronized void start(Runnable target){
 		Worker thread=null;
 		//如果有空闲线程直接使用
