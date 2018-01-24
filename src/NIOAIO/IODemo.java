@@ -1,9 +1,8 @@
 package NIOAIO;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
@@ -30,6 +29,20 @@ public class IODemo {
 		}
 		readChannel.close();
 		writeChannel.close();
+	}
+
+
+	//文件映射到内存
+	public void fileTomemory(String resource) throws IOException {
+		RandomAccessFile raf=new RandomAccessFile(resource,"rw");
+		FileChannel fc=raf.getChannel();
+		MappedByteBuffer mbb=
+				fc.map(FileChannel.MapMode.READ_WRITE,0,raf.length()-1);
+		while (mbb.hasRemaining()){
+			System.out.println((char)mbb.get());
+		}
+		mbb.put(0,(byte)98);
+		raf.close();
 	}
 
 
