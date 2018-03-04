@@ -10,6 +10,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by xiongxiaoyu on 2018/1/24.
  * 为每一个线程分配一个实例
+ * ThreadLocal只会维护线程中的对象
  */
 public class ThreadLocal2 {
 

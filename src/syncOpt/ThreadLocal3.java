@@ -19,7 +19,7 @@ public class ThreadLocal3 {
 		public void run() {
 			try {
 				if(tl.get()==null){
-					tl.set(sdf);
+					tl.set(sdf);//ThreadLocal每次只维护当前的一个对象实例，这里的sdf始终只是一个对象实例，多个线程都指向了一个sdf。达不到效果
 				}
 				Date t=tl.get().parse("2015-03-29 19:29:"+i%60);
 				System.out.println(i+":"+t);

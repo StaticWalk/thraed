@@ -12,12 +12,8 @@ import java.util.concurrent.Executors;
  * 这是一个错误的demo，多线程访问的时候会出现冲突
  */
 public class ThreadLocal1<S extends DateFormat> {
-
 	private static final SimpleDateFormat sdf
 			= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-
-
 	public static class ParseDate implements Runnable{
 		int i=0;
 		public ParseDate(int i){
