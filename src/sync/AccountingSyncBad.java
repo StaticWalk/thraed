@@ -8,7 +8,7 @@ public class AccountingSyncBad implements Runnable{
 	static int i=0;
 	public synchronized void increase(){i++;}
 	@Override
-	public void run() {
+	public void  run() {
 		for (int j = 0; j <10000000 ; j++) {
 			increase();
 		}
